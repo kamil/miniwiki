@@ -8,7 +8,7 @@ $('http').createServer(function (req, res) {
 
   _.readFile(w, function (o, data) {
     res.writeHead(200, {'Content-Type':'text/html'});
-    _escaped_data = (""+data).replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    res.end(_escaped_data.replace(/htt\S+|([A-Z]\w+){2,}/g,"<a href=$&>$&</a>").replace(/\n\r/g,'<p>')+"<hr><form method=POST><textarea cols=99 rows=25 name=d>"+_escaped_data+"</textarea><br><input type=submit ></form>");
+    n = (""+data).replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    res.end(n.replace(/htt\S+|([A-Z]\w+){2,}/g,"<a href=$&>$&</a>").replace(/\n\r/g,'<p>')+"<hr><form method=POST><textarea cols=99 rows=25 name=d>"+n+"</textarea><br><input type=submit></form>");
   });
-}).listen(8000);
+}).listen(80);
